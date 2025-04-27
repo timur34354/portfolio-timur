@@ -356,7 +356,7 @@ body {
     position: absolute;
     top: 60px;
     right: 20px;
-    background: #333;
+    background: #000000;
     padding: 1rem;
     border-radius: 10px;
   }
@@ -369,6 +369,85 @@ body {
     margin: 10px 0;
   }
 }
+.menu-toggle {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* При активации */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5; /* Ниже меню, но выше сайта */
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.bar {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  transition: all 0.4s ease;
+  border-radius: 2px;
+}
+
+/* Когда меню открыто - анимируем полоски */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 
 
@@ -376,11 +455,13 @@ body {
   </style>
 </head>
 <body>
-  <div class="menu-toggle" id="menu-toggle">
+  <div class="menu-toggle">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
   </div>
+  
+  
   <nav class="main-nav">
     <ul>
       <li><a href="#skills">Навыки</a></li>
@@ -391,7 +472,7 @@ body {
   </nav>
   
   <header>
-     
+    <div class="overlay" id="overlay"></div> 
     <h1>Привет! Я Тимур</h1>
     <p>Начинающий сайто-строитель и дизайнер</p>
   </header>
@@ -540,6 +621,37 @@ z-index: -1;
   menuToggle.addEventListener('click', () => {
     nav.querySelector('ul').classList.toggle('showing');
   });
+  const overlay = document.getElementById('overlay');
+  const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('showing');
+});
+
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('showing');
+  overlay.classList.toggle('active');
+});
+
+// Если нажать на затемнение — меню закроется
+overlay.addEventListener('click', () => {
+  menuToggle.classList.remove('active');
+  navLinks.classList.remove('showing');
+  overlay.classList.remove('active');
+});
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active'); // Добавляем/убираем класс active
+  navLinks.classList.toggle('showing');
+});
+
+
   </script>
   </body>
 </html>
