@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сайт Тимура</title>
   <style>
     * {
@@ -10,6 +11,57 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+      /* Адаптация для экранов до 768px */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 0.5rem 0;
+  }
+
+  .tools {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+/* Адаптация для очень маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
     }
     html {
       scroll-behavior: smooth;
@@ -357,7 +409,7 @@ z-index: -1;
     " 
     onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 35px #00ffffcc';" 
     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 25px #00ffff88';">
-      <img src="timur-photo.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <img src="C:\Users\User\Desktop\images/timur-photo.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
       <p style="margin-top: 0.8rem; color: #00ffff; font-size: 1.1rem; font-weight: bold;">
         Сертификат<br>Компьютерная графика и Дизайн
       </p>
@@ -373,7 +425,7 @@ z-index: -1;
     " 
     onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 35px #00ffffcc';" 
     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 25px #00ffff88';">
-      <img src="timur-photo 1.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <img src="C:\Users\User\Desktop\images/timur-photo 1.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
       <p style="margin-top: 0.8rem; color: #00ffff; font-size: 1.1rem; font-weight: bold;">
         Сертификат<br>Компьютерная графика и Дизайн
       </p>
@@ -389,7 +441,7 @@ z-index: -1;
       " 
       onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 35px #00ffffcc';" 
       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 25px #00ffff88';">
-        <img src="timur-photo 2.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
+        <img src="C:\Users\User\Desktop\images/timur-photo 2.jpg" alt="Сертификат" style="max-width: 300px; width: 100%; border-radius: 8px;">
         <p style="margin-top: 0.8rem; color: #00ffff; font-size: 1.1rem; font-weight: bold;">
           Сертификат<br>Компьютерная графика и Дизайн
         </p>
@@ -404,12 +456,11 @@ z-index: -1;
         <li>Телефон:+7 771 149 9807</li>
         <li>Instagram: <a href="https://www.instagram.com/timur_yakshimuratov" target="_blank">@timur_yakshimuratov</a></li>
         <li>Ватсап: <a href="https://wa.me/77711499807" target="_blank">Тимур Якшимуратов</a></li>
-
       </ul>
     </section>
 
 
-
+    
   <footer>
     <p>&copy; 2025 Сайт Тимура</p>
   </footer>
