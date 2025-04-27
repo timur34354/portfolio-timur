@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сайт Тимура</title>
   <style>
     * {
@@ -323,12 +324,63 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* Стили для бургер-меню */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #fff; /* Можешь поменять цвет */
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Показывать бургер на маленьких экранах */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #333;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  nav ul.showing {
+    display: flex;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+
 
 
 
   </style>
 </head>
 <body>
+  <div class="menu-toggle" id="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
   <nav class="main-nav">
     <ul>
       <li><a href="#skills">Навыки</a></li>
@@ -482,7 +534,12 @@ z-index: -1;
       target.classList.add('highlight');
       setTimeout(() => target.classList.remove('highlight'), 1000);
     });
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.querySelector('ul').classList.toggle('showing');
+  });
   </script>
   </body>
 </html>
-
