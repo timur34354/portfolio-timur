@@ -474,13 +474,14 @@ body {
   <header>
     <div class="overlay" id="overlay"></div> 
     <h1>Привет! Я Тимур</h1>
-    <p>Начинающий сайто-строитель и дизайнер</p>
+    <p>Графический дизайнер и начинающий сайтостроитель</p>
   </header>
  
   <section id="skills">
     <h2 style="text-align: center;">Что я умею</h2>
     <p style="text-align: center;">Я создаю:</p>
     <div style="text-align: center;" class="tools">
+      <div  class="tool"><i data-lucide="animation"></i>Анимации</div>
       <div  class="tool"><i data-lucide="image"></i> Картинки</div>
       <div class="tool"><i data-lucide="palette"></i> Дизайны</div>
       <div class="tool"><i data-lucide="badge-percent"></i> Логотипы</div>
@@ -610,63 +611,8 @@ z-index: -1;
 
     
   <footer>
-    <p>&copy; 2025 Сайт Тимура</p>
+    <p>2025 Сайт Тимура</p>
   </footer>
-
-  <script>
-    function filterSelection(category) {
-      const items = document.querySelectorAll('.portfolio-item');
-      if (category === 'all') {
-        items.forEach(item => item.style.display = 'block');
-      } else {
-        items.forEach(item => {
-          item.style.display = item.classList.contains(category) ? 'block' : 'none';
-        });
-      }
-    }
-    filterSelection('all');
-
-    document.querySelector('a[href="#portfolio"]').addEventListener('click', function () {
-      const target = document.querySelector('#portfolio');
-      target.classList.add('highlight');
-      setTimeout(() => target.classList.remove('highlight'), 1000);
-    });
-  const menuToggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('nav');
-
-  menuToggle.addEventListener('click', () => {
-    nav.querySelector('ul').classList.toggle('showing');
-  });
-  const overlay = document.getElementById('overlay');
-  const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('nav ul');
-
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navLinks.classList.toggle('showing');
-});
-
-
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navLinks.classList.toggle('showing');
-  overlay.classList.toggle('active');
-});
-
-// Если нажать на затемнение — меню закроется
-overlay.addEventListener('click', () => {
-  menuToggle.classList.remove('active');
-  navLinks.classList.remove('showing');
-  overlay.classList.remove('active');
-});
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('nav ul');
-
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active'); // Добавляем/убираем класс active
-  navLinks.classList.toggle('showing');
-});
-
 
   </script>
   </body>
